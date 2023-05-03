@@ -454,3 +454,17 @@ const List<Map<String, String>> availableOfferList = [
     "valid": "Valid till 30th Jun",
   },
 ];
+
+const List<String> seasonCollection = [
+  "Spring / Summer 2023",
+  "Autumn / Winter 2022",
+  "Spring / Summer 2022",
+  "Autumn / Winter 2021",
+  "Spring / Summer 2021",
+  "Autumn / Winter 2020",
+  "Spring / Summer 2020",
+  "Autumn / Winter 2019",
+  "Spring / Summer 2019",
+  "Autumn / Winter 2018",
+  "Spring / Summer 2018",
+];

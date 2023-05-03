@@ -1,8 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:jewel_ar/custom_widgets/custom_rounded_button.dart';
+import 'package:jewel_ar/data/static_data.dart';
 
 import '../../../data/constData.dart';
+import '../../gift_guide_pages/gift_guide_page.dart';
 import 'banner_page_indicator.dart';
 import 'gifting_easy_page_view.dart';
 
@@ -82,13 +84,19 @@ class _GiftingSectionState extends State<GiftingSection> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomRoundedButton(
-                width: widget.width * 0.4,
-                height: widget.height * 0.05,
-                text: "VIEW ALL",
-                horizontalPadding: widget.width * 0.125,
-                textColor: Colors.white,
-                buttonColor: primaryBackgroud2RoyalBlue.withOpacity(0.8),
+              InkWell(
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(GiftGuidePage.routeName);
+                },
+                child: CustomRoundedButton(
+                  width: widget.width * 0.4,
+                  height: widget.height * 0.05,
+                  text: "VIEW ALL",
+                  horizontalPadding: widget.width * 0.125,
+                  textColor: Colors.white,
+                  buttonColor: primaryBackgroud2RoyalBlue.withOpacity(0.8),
+                ),
               ),
             ],
           ),

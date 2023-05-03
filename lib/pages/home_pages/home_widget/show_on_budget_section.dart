@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
 
 import '../../../data/constData.dart';
 import '../../../data/static_data.dart';
@@ -56,41 +57,49 @@ class ShopOnBudgetSection extends StatelessWidget {
               ),
               physics: const NeverScrollableScrollPhysics(),
               itemCount: budgetCategoryList.length,
-              itemBuilder: (context, index) => Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: primaryBackground,
-                ),
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  appLevelNavigatorKey.currentState!.pushNamed(
+                    ListingPage.routeName,
+                    arguments: budgetCategoryList[index].values.toList()[0],
+                  );
+                },
                 child: Container(
-                  padding: EdgeInsets.all(width * 0.035),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      AutoSizeText(
-                        budgetCategoryList[index].values.toList()[0],
-                        maxLines: 1,
-                        maxFontSize: 20,
-                        minFontSize: 16,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: primaryBackground,
+                  ),
+                  child: Container(
+                    padding: EdgeInsets.all(width * 0.035),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        AutoSizeText(
+                          budgetCategoryList[index].values.toList()[0],
+                          maxLines: 1,
+                          maxFontSize: 20,
+                          minFontSize: 16,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                      // SizedBox(height: height * 0.0025),
-                      AutoSizeText(
-                        "${budgetCategoryList[index].values.toList()[1]} Styles",
-                        maxLines: 1,
-                        maxFontSize: 12,
-                        minFontSize: 8,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                        // SizedBox(height: height * 0.0025),
+                        AutoSizeText(
+                          "${budgetCategoryList[index].values.toList()[1]} Styles",
+                          maxLines: 1,
+                          maxFontSize: 12,
+                          minFontSize: 8,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

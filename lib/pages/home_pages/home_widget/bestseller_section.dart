@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/static_data.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
 
 import '../../../data/constData.dart';
 import 'bestseller_page_view_widget.dart';
@@ -49,14 +51,21 @@ class BestsellerSection extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                const AutoSizeText(
-                  "View all",
-                  maxFontSize: 15,
-                  minFontSize: 10,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: amberColor,
+                InkWell(
+                  onTap: () {
+                    appLevelNavigatorKey.currentState!.pushNamed(
+                        ListingPage.routeName,
+                        arguments: sectionTitle);
+                  },
+                  child: const AutoSizeText(
+                    "View all",
+                    maxFontSize: 15,
+                    minFontSize: 10,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: amberColor,
+                    ),
                   ),
                 ),
               ],

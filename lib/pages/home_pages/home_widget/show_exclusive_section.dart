@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/static_data.dart';
 
 import '../../../data/constData.dart';
+import '../../all_exclusive_pages/all_exclusive_page.dart';
 import 'show_exclusive_page_view.dart';
 
 class ShopExclusiveSection extends StatelessWidget {
@@ -33,8 +35,8 @@ class ShopExclusiveSection extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                AutoSizeText(
+              children: [
+                const AutoSizeText(
                   "Shop our Exclusives",
                   maxFontSize: 19,
                   minFontSize: 14,
@@ -44,14 +46,20 @@ class ShopExclusiveSection extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                AutoSizeText(
-                  "View all",
-                  maxFontSize: 15,
-                  minFontSize: 10,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: amberColor,
+                InkWell(
+                  onTap: () {
+                    appLevelNavigatorKey.currentState!
+                        .pushNamed(AllExclusivePage.routeName);
+                  },
+                  child: const AutoSizeText(
+                    "View all",
+                    maxFontSize: 15,
+                    minFontSize: 10,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: amberColor,
+                    ),
                   ),
                 ),
               ],

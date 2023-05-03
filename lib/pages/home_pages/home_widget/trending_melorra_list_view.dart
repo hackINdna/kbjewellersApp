@@ -1,5 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/static_data.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/item_details_page.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
 
 import '../../../custom_widgets/view_all_with_icon.dart';
 import '../../../data/constData.dart';
@@ -50,43 +53,80 @@ class TrendingMelorraListView extends StatelessWidget {
             ),
           ),
           SizedBox(width: width * 0.15),
-          TrendingMelorraListItem(
-            width: width,
-            height: height,
-            index: 0,
-          ),
-          SizedBox(width: width * 0.03),
-          TrendingMelorraListItem(
-            width: width,
-            height: height,
-            index: 1,
-          ),
-          SizedBox(width: width * 0.03),
-          TrendingMelorraListItem(
-            width: width,
-            height: height,
-            index: 2,
-          ),
-          SizedBox(width: width * 0.03),
-          TrendingMelorraListItem(
-            width: width,
-            height: height,
-            index: 3,
-          ),
-          SizedBox(width: width * 0.03),
-          TrendingMelorraListItem(
-            width: width,
-            height: height,
-            index: 4,
-          ),
-          SizedBox(width: width * 0.03),
-          Container(
-            width: width * 0.4,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!
+                  .pushNamed(ItemDetailsPage.routeName);
+            },
+            child: TrendingMelorraListItem(
+              width: width,
+              height: height,
+              index: 0,
             ),
-            child: ViewAllWithIcon(width: width),
+          ),
+          SizedBox(width: width * 0.03),
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!
+                  .pushNamed(ItemDetailsPage.routeName);
+            },
+            child: TrendingMelorraListItem(
+              width: width,
+              height: height,
+              index: 1,
+            ),
+          ),
+          SizedBox(width: width * 0.03),
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!
+                  .pushNamed(ItemDetailsPage.routeName);
+            },
+            child: TrendingMelorraListItem(
+              width: width,
+              height: height,
+              index: 2,
+            ),
+          ),
+          SizedBox(width: width * 0.03),
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!
+                  .pushNamed(ItemDetailsPage.routeName);
+            },
+            child: TrendingMelorraListItem(
+              width: width,
+              height: height,
+              index: 3,
+            ),
+          ),
+          SizedBox(width: width * 0.03),
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!
+                  .pushNamed(ItemDetailsPage.routeName);
+            },
+            child: TrendingMelorraListItem(
+              width: width,
+              height: height,
+              index: 4,
+            ),
+          ),
+          SizedBox(width: width * 0.03),
+          InkWell(
+            onTap: () {
+              appLevelNavigatorKey.currentState!.pushNamed(
+                  ListingPage.routeName,
+                  arguments: "Trending on Melorra");
+            },
+            child: Container(
+              width: width * 0.4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              child: ViewAllWithIcon(width: width),
+            ),
           ),
         ],
       ),

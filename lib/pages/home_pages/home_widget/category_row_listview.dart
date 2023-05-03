@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/pages/offers_page/offer_page.dart';
 
 import '../../../data/static_data.dart';
 import '../listing_pages/listing_page.dart';
@@ -28,7 +29,9 @@ class CategoryRowListView extends StatelessWidget {
         itemBuilder: (context, index) => InkWell(
           onTap: () {
             appLevelNavigatorKey.currentState!.pushNamed(
-              ListingPage.routeName,
+              circleCategoryList[index].values.toList()[1] == "Offers"
+                  ? OffersPage.routeName
+                  : ListingPage.routeName,
               arguments: circleCategoryList[index].values.toList()[1],
             );
           },

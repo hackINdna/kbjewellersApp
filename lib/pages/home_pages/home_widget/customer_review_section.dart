@@ -1,5 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/static_data.dart';
+import 'package:jewel_ar/pages/customer_message_pages/customer_message_page.dart';
 
 import '../../../custom_widgets/customer_review_item.dart';
 import '../../../custom_widgets/view_all_with_icon.dart';
@@ -72,15 +74,21 @@ class CustomerReviewSection extends StatelessWidget {
                   text: "Customer Review 5",
                 ),
                 SizedBox(width: width * 0.08),
-                Container(
-                  width: width * 0.7,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      // color: amberColor,
-                      borderRadius: BorderRadius.circular(8),
-                      boxShadow: [boxShadow]),
-                  alignment: Alignment.center,
-                  child: ViewAllWithIcon(width: width),
+                InkWell(
+                  onTap: () {
+                    appLevelNavigatorKey.currentState!
+                        .pushNamed(CustomerMessagePage.routeName);
+                  },
+                  child: Container(
+                    width: width * 0.7,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        // color: amberColor,
+                        borderRadius: BorderRadius.circular(8),
+                        boxShadow: [boxShadow]),
+                    alignment: Alignment.center,
+                    child: ViewAllWithIcon(width: width),
+                  ),
                 )
               ],
             ),

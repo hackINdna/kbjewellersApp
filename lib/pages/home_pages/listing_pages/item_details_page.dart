@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/constData.dart';
 import '../../../data/static_data.dart';
+import '../home_widget/list_item.dart';
 
 class ItemDetailsPage extends StatefulWidget {
   static const String routeName = "/item-details-page";
@@ -15,7 +16,14 @@ class ItemDetailsPage extends StatefulWidget {
 class _ItemDetailsPageState extends State<ItemDetailsPage> {
   bool _showProductDetails = false;
   bool _showPriceBreakup = true;
+  bool _matchWithSelected = true;
   // double _keyboardHeight = 0.0;
+
+  void matchWithSelected() {
+    setState(() {
+      _matchWithSelected = !_matchWithSelected;
+    });
+  }
 
   void showProductDetails() {
     setState(() {
@@ -1411,6 +1419,244 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         indent: width * 0.025,
                         endIndent: width * 0.025,
                       ),
+                      SizedBox(height: height * 0.025),
+                      Container(
+                        width: width,
+                        padding: EdgeInsets.only(left: width * 0.025),
+                        child: const AutoSizeText(
+                          "Any Assistance?",
+                          maxLines: 1,
+                          maxFontSize: 14,
+                          minFontSize: 12,
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: height * 0.01),
+                      Row(
+                        children: [
+                          SizedBox(width: width * 0.025),
+                          AssistanceIconWithText(
+                            width: width,
+                            height: height,
+                            icon: Icons.chat_outlined,
+                            iconText: "Chat",
+                          ),
+                          SizedBox(width: width * 0.08),
+                          AssistanceIconWithText(
+                            width: width,
+                            height: height,
+                            icon: Icons.call_outlined,
+                            iconText: "Call",
+                          ),
+                          SizedBox(width: width * 0.08),
+                          AssistanceIconWithText(
+                            width: width,
+                            height: height,
+                            icon: Icons.phone_android_outlined,
+                            iconText: "Whatsapp",
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: height * 0.03),
+                      Container(
+                        width: width,
+                        padding:
+                            EdgeInsets.symmetric(horizontal: width * 0.025),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              // color: Colors.grey,
+                              width: width * 0.785,
+                              child: const AutoSizeText(
+                                "Gold Karat can be customized. To customize this product",
+                                maxLines: 2,
+                                maxFontSize: 14,
+                                minFontSize: 14,
+                                style: TextStyle(
+                                  height: 1.5,
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: AutoSizeText(
+                                "CALL US",
+                                maxLines: 1,
+                                maxFontSize: 12,
+                                minFontSize: 10,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.blue.shade800,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: height * 0.02),
+                      Divider(
+                        color: Colors.black12,
+                        thickness: 2,
+                        indent: width * 0.025,
+                        endIndent: width * 0.025,
+                      ),
+                      SizedBox(height: height * 0.02),
+                      Padding(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: width * 0.025),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                if (_matchWithSelected == false) {
+                                  matchWithSelected();
+                                }
+                              },
+                              child: Container(
+                                width: width * 0.475,
+                                height: height * 0.05,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.black,
+                                      width: _matchWithSelected ? 3 : 1,
+                                    ),
+                                    left: BorderSide(
+                                      color: Colors.grey[50]!,
+                                      width: 3,
+                                    ),
+                                    right: BorderSide(
+                                      color: Colors.grey[50]!,
+                                      width: 3,
+                                    ),
+                                  ),
+                                ),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  "MATCH WITH",
+                                  maxLines: 1,
+                                  maxFontSize: 14,
+                                  minFontSize: 12,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: _matchWithSelected
+                                        ? FontWeight.w500
+                                        : FontWeight.w400,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            InkWell(
+                              onTap: () {
+                                if (_matchWithSelected == true) {
+                                  matchWithSelected();
+                                }
+                              },
+                              child: Container(
+                                width: width * 0.475,
+                                height: height * 0.05,
+                                decoration: BoxDecoration(
+                                  border: Border(
+                                    bottom: BorderSide(
+                                      color: Colors.black,
+                                      width: !_matchWithSelected ? 3 : 1,
+                                    ),
+                                    left: BorderSide(
+                                      color: Colors.grey[50]!,
+                                      width: 3,
+                                    ),
+                                    right: BorderSide(
+                                      color: Colors.grey[50]!,
+                                      width: 3,
+                                    ),
+                                  ),
+                                ),
+                                alignment: Alignment.center,
+                                child: AutoSizeText(
+                                  "YOU MAY ALSO LIKE",
+                                  maxLines: 1,
+                                  maxFontSize: 14,
+                                  minFontSize: 12,
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: !_matchWithSelected
+                                        ? FontWeight.w500
+                                        : FontWeight.w400,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: height * 0.02),
+                      SizedBox(
+                        width: width,
+                        height: height * 0.38,
+                        // color: Colors.grey,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          padding:
+                              EdgeInsets.symmetric(horizontal: width * 0.025),
+                          itemCount: 20,
+                          itemBuilder: (context, index) => SizedBox(
+                            width: width * 0.38,
+                            child: const ListItem(),
+                          ),
+                          separatorBuilder: (context, index) =>
+                              SizedBox(width: width * 0.05),
+                        ),
+                      ),
+                      SizedBox(height: height * 0.04),
+                      Divider(
+                        color: Colors.black12,
+                        thickness: 2,
+                        indent: width * 0.025,
+                        endIndent: width * 0.025,
+                      ),
+                      SizedBox(height: height * 0.05),
+                      MoreTextNavigatePage(
+                        width: width,
+                        text: "More More More more",
+                        icon: Icons.arrow_forward,
+                      ),
+                      SizedBox(height: height * 0.02),
+                      Divider(
+                        color: Colors.black12,
+                        thickness: 2,
+                        indent: width * 0.025,
+                        endIndent: width * 0.025,
+                      ),
+                      SizedBox(height: height * 0.02),
+                      MoreTextNavigatePage(
+                        width: width,
+                        text: "More More More more",
+                        icon: Icons.arrow_forward,
+                      ),
+                      SizedBox(height: height * 0.02),
+                      Divider(
+                        color: Colors.black12,
+                        thickness: 2,
+                        indent: width * 0.025,
+                        endIndent: width * 0.025,
+                      ),
+                      SizedBox(height: height * 0.02),
+                      MoreTextNavigatePage(
+                        width: width,
+                        text: "More More More more",
+                        icon: Icons.arrow_forward,
+                      ),
                       SizedBox(height: bottomHeight + bottomHeight),
                     ],
                   ),
@@ -1504,6 +1750,91 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
+    );
+  }
+}
+
+class MoreTextNavigatePage extends StatelessWidget {
+  final double width;
+  final String text;
+  final IconData icon;
+  const MoreTextNavigatePage({
+    super.key,
+    required this.width,
+    required this.text,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: width * 0.025),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          AutoSizeText(
+            text,
+            maxLines: 1,
+            maxFontSize: 14,
+            minFontSize: 12,
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          Icon(
+            icon,
+            color: Colors.black,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AssistanceIconWithText extends StatelessWidget {
+  final double width;
+  final double height;
+  final IconData icon;
+  final String iconText;
+  const AssistanceIconWithText({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.icon,
+    required this.iconText,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // width: width * 0.15,
+      height: height * 0.08,
+      // color: Colors.grey,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            // width: width * 0.15,
+            height: height * 0.05,
+            child: Icon(
+              icon,
+              color: Colors.black,
+            ),
+          ),
+          AutoSizeText(
+            iconText,
+            maxFontSize: 12,
+            minFontSize: 10,
+            style: const TextStyle(
+              fontSize: 12,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

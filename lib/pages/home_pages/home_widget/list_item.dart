@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/constData.dart';
 
 class ListItem extends StatelessWidget {
   const ListItem({
@@ -19,9 +20,9 @@ class ListItem extends StatelessWidget {
             Container(
               width: constraints.maxWidth,
               height: constraints.maxHeight * 0.68,
-              decoration: const BoxDecoration(
-                color: Colors.grey,
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                color: amberWithOpacity.withOpacity(0.3),
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
                 ),

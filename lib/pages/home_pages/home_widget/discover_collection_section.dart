@@ -1,7 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/data/static_data.dart';
 
 import '../../../data/constData.dart';
+import '../../collection_page/collection_page.dart';
 import 'banner_page_indicator.dart';
 import 'discover_collection_page_view.dart';
 
@@ -31,8 +33,8 @@ class DiscoverCollectionSection extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                AutoSizeText(
+              children: [
+                const AutoSizeText(
                   "Discover our Collections",
                   maxFontSize: 19,
                   minFontSize: 14,
@@ -42,14 +44,20 @@ class DiscoverCollectionSection extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
-                AutoSizeText(
-                  "View all",
-                  maxFontSize: 15,
-                  minFontSize: 10,
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w500,
-                    color: amberColor,
+                InkWell(
+                  onTap: () {
+                    appLevelNavigatorKey.currentState!
+                        .pushNamed(CollectionPage.routeName);
+                  },
+                  child: const AutoSizeText(
+                    "View all",
+                    maxFontSize: 15,
+                    minFontSize: 10,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: amberColor,
+                    ),
                   ),
                 ),
               ],

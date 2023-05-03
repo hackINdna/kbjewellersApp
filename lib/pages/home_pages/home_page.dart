@@ -3,12 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:jewel_ar/custom_widgets/custom_rounded_button.dart';
 import 'package:jewel_ar/pages/home_pages/home_widget/gifting_easy_page_view.dart';
 import 'package:jewel_ar/pages/home_pages/home_widget/gifting_section.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
+import 'package:jewel_ar/pages/offers_page/offer_page.dart';
 import '../../custom_widgets/custom_divider.dart';
 import '../../custom_widgets/customer_review_item.dart';
 import '../../custom_widgets/social_media_circular_item.dart';
 import '../../custom_widgets/view_all_with_icon.dart';
 import '../../data/constData.dart';
 import '../../data/static_data.dart';
+import '../trust_features_of_app/trust_features_page.dart';
 import 'home_widget/banner_page_indicator.dart';
 import 'home_widget/banner_page_view.dart';
 import 'home_widget/bestseller_page_view_widget.dart';
@@ -168,7 +171,13 @@ class _HomePageState extends State<HomePage>
               ),
             ),
             const CustomDivider(),
-            OurAppBenefitsSection(width: width, height: height),
+            InkWell(
+              onTap: () {
+                appLevelNavigatorKey.currentState!
+                    .pushNamed(TrustFeaturesPage.routeName);
+              },
+              child: OurAppBenefitsSection(width: width, height: height),
+            ),
             const CustomDivider(),
             SizedBox(height: height * 0.03),
             DiscoverCollectionSection(
@@ -203,11 +212,31 @@ class _HomePageState extends State<HomePage>
               height: height,
             ),
             SizedBox(height: height * 0.05),
-            BrownBannerSmall(width: width, height: height),
+            InkWell(
+              onTap: () {
+                appLevelNavigatorKey.currentState!
+                    .pushNamed(OffersPage.routeName);
+              },
+              child: BrownBannerSmall(width: width, height: height),
+            ),
             SizedBox(height: height * 0.03),
-            RedBannerMedium(width: width, height: height),
+            InkWell(
+              onTap: () {
+                appLevelNavigatorKey.currentState!.pushNamed(
+                    ListingPage.routeName,
+                    arguments: "Delivering Quick");
+              },
+              child: RedBannerMedium(width: width, height: height),
+            ),
             SizedBox(height: height * 0.03),
-            VirtualTryOnBannerBig(width: width, height: height),
+            InkWell(
+              onTap: () {
+                appLevelNavigatorKey.currentState!.pushNamed(
+                    ListingPage.routeName,
+                    arguments: "All Jewellery");
+              },
+              child: VirtualTryOnBannerBig(width: width, height: height),
+            ),
             SizedBox(height: height * 0.05),
             BestsellerSection(
               width: width,
