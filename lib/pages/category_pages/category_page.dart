@@ -2,6 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polygon/flutter_polygon.dart';
 import 'package:jewel_ar/data/static_data.dart';
+import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
+
+import '../search_pages/search_page.dart';
 
 class CategoryPage extends StatelessWidget {
   static const String routeName = "/category-page";
@@ -25,7 +28,9 @@ class CategoryPage extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            appLevelNavigatorKey.currentState!.pushNamed(SearchPage.routeName);
+          },
           icon: const Icon(
             Icons.search,
             color: Colors.black,
@@ -57,76 +62,84 @@ class CategoryPage extends StatelessWidget {
               itemCount: categoriesPageList.length,
               separatorBuilder: (context, index) =>
                   SizedBox(height: height * 0.02),
-              itemBuilder: (context, index) => SizedBox(
-                width: width,
-                height: height * 0.125,
-                child: Stack(
-                  fit: StackFit.expand,
-                  alignment: Alignment.centerRight,
-                  children: [
-                    Container(
-                      width: width,
-                      height: height * 0.125,
-                      alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(
-                        left: width * 0.04,
-                        right: width * 0.45,
-                        top: height * 0.02,
-                        bottom: height * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        gradient: LinearGradient(
-                          colors: [
-                            Colors.orange.shade200,
-                            Colors.orange.shade100,
+              itemBuilder: (context, index) => InkWell(
+                onTap: () {
+                  appLevelNavigatorKey.currentState!.pushNamed(
+                    ListingPage.routeName,
+                    arguments: categoriesPageList[index].values.toList()[0],
+                  );
+                },
+                child: SizedBox(
+                  width: width,
+                  height: height * 0.125,
+                  child: Stack(
+                    fit: StackFit.expand,
+                    alignment: Alignment.centerRight,
+                    children: [
+                      Container(
+                        width: width,
+                        height: height * 0.125,
+                        alignment: Alignment.centerLeft,
+                        padding: EdgeInsets.only(
+                          left: width * 0.04,
+                          right: width * 0.45,
+                          top: height * 0.02,
+                          bottom: height * 0.02,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(
+                            colors: [
+                              Colors.orange.shade200,
+                              Colors.orange.shade100,
+                            ],
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            AutoSizeText(
+                              categoriesPageList[index].values.toList()[0],
+                              maxLines: 1,
+                              maxFontSize: 18,
+                              minFontSize: 14,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: height * 0.01),
+                            AutoSizeText(
+                              categoriesPageList[index].values.toList()[1],
+                              maxLines: 2,
+                              maxFontSize: 13,
+                              minFontSize: 8,
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: Colors.black38,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          AutoSizeText(
-                            categoriesPageList[index].values.toList()[0],
-                            maxLines: 1,
-                            maxFontSize: 18,
-                            minFontSize: 14,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500,
+                      ClipPath(
+                        clipper: MyPolygon(),
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10),
+                              bottomRight: Radius.circular(10),
                             ),
                           ),
-                          SizedBox(height: height * 0.01),
-                          AutoSizeText(
-                            categoriesPageList[index].values.toList()[1],
-                            maxLines: 2,
-                            maxFontSize: 13,
-                            minFontSize: 8,
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Colors.black38,
-                              fontWeight: FontWeight.normal,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    ClipPath(
-                      clipper: MyPolygon(),
-                      child: Container(
-                        decoration: const BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
-                          ),
+                          width: width,
+                          height: height * 0.125,
                         ),
-                        width: width,
-                        height: height * 0.125,
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -1,6 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_widgets/contact_us_bottom_sheet.dart';
+
 class TrustFeaturesPage extends StatelessWidget {
   static const String routeName = '/trust-features-page';
   const TrustFeaturesPage({super.key});
@@ -30,7 +32,9 @@ class TrustFeaturesPage extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () async {
+              await showContactUs(context, width, height);
+            },
             icon: const Icon(
               Icons.headset_mic_outlined,
               color: Colors.black,

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:jewel_ar/data/constData.dart';
 
+import '../../custom_widgets/contact_us_bottom_sheet.dart';
 import '../../custom_widgets/custom_radio_with_text.dart';
 import '../../data/static_data.dart';
 
@@ -47,7 +48,9 @@ class _CollectionPageState extends State<CollectionPage> {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            await showContactUs(context, width, height);
+          },
           icon: const Icon(
             Icons.headset_mic_outlined,
             color: Colors.black,

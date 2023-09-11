@@ -142,6 +142,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
                     cartLevelNavigatorKey.currentState!.pushNamedAndRemoveUntil(
                       CartPage.routeName,
                       (route) => false,
+                      arguments: false,
                     );
                   } else {
                     setState(() {

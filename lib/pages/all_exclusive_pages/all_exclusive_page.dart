@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:jewel_ar/custom_widgets/contact_us_bottom_sheet.dart';
 
 import '../../data/constData.dart';
 
@@ -31,7 +32,9 @@ class AllExclusivePage extends StatelessWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () async {
+            await showContactUs(context, width, height);
+          },
           icon: const Icon(
             Icons.headset_mic_outlined,
             color: Colors.black,

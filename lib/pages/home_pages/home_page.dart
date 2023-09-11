@@ -5,8 +5,11 @@ import 'package:jewel_ar/pages/home_pages/home_widget/gifting_easy_page_view.dar
 import 'package:jewel_ar/pages/home_pages/home_widget/gifting_section.dart';
 import 'package:jewel_ar/pages/home_pages/listing_pages/listing_page.dart';
 import 'package:jewel_ar/pages/offers_page/offer_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_wishlist_page.dart';
+import 'package:jewel_ar/pages/search_pages/search_page.dart';
 import '../../custom_widgets/custom_divider.dart';
 import '../../custom_widgets/customer_review_item.dart';
+import '../../custom_widgets/floatingActionButton.dart';
 import '../../custom_widgets/social_media_circular_item.dart';
 import '../../custom_widgets/view_all_with_icon.dart';
 import '../../data/constData.dart';
@@ -115,14 +118,19 @@ class _HomePageState extends State<HomePage>
       automaticallyImplyLeading: false,
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            appLevelNavigatorKey.currentState!.pushNamed(SearchPage.routeName);
+          },
           icon: const Icon(
             Icons.search,
             color: Colors.black,
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            appLevelNavigatorKey.currentState!
+                .pushNamed(MyWishlistPage.routeName);
+          },
           icon: Badge(
             backgroundColor: amberWithOpacity,
             label: const Text("0"),
@@ -323,39 +331,8 @@ class _HomePageState extends State<HomePage>
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(height: height),
+      floatingActionButton: CustomFloatingActionButton(height: height),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-    );
-  }
-}
-
-class FloatingActionButton extends StatelessWidget {
-  const FloatingActionButton({
-    super.key,
-    required this.height,
-  });
-
-  final double height;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: height * 0.05,
-      height: height * 0.05,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.green,
-        boxShadow: [boxShadowLow],
-      ),
-      alignment: Alignment.center,
-      child: const Text(
-        "W",
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 20,
-        ),
-      ),
     );
   }
 }

@@ -468,3 +468,98 @@ const List<String> seasonCollection = [
   "Autumn / Winter 2018",
   "Spring / Summer 2018",
 ];
+
+const List<Map<String, String>> profileMenu = [
+  {
+    "icon": "",
+    "title": "My Orders",
+    "page": "/my-orders-page",
+  },
+  {
+    "icon": "",
+    "title": "My WishList",
+    "page": "/my-wishlist-page",
+  },
+  {
+    "icon": "",
+    "title": "My Measurements",
+    "page": "/my-measurements-page",
+  },
+  {
+    "icon": "",
+    "title": "Personal Information",
+    "page": "/personal-information-page",
+  },
+  {
+    "icon": "",
+    "title": "My Address",
+    "page": "/my-address-page",
+  },
+  // {
+  //   "icon": "",
+  //   "title": "My Jewellery",
+  //   "page": "/my-jewellery-page",
+  // },
+  // {
+  //   "icon": "",
+  //   "title": "JewelAR Coins",
+  //   "page": "/my-orders-page",
+  // },
+  {
+    "icon": "",
+    "title": "Contact Us",
+    "page": "contact",
+  },
+];
+
+const List<String> ringSize = [
+  "Select new size (circumference in mm)",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "17",
+  "18",
+  "19",
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+];
+
+const List<String> bangleSize = [
+  "Select new size (circumference in mm)",
+  "2.0",
+  "2.1",
+  "2.2",
+  "2.3",
+  "2.4",
+  "2.5",
+  "2.6",
+  "2.7",
+  "2.8",
+  "2.9",
+  "2.10",
+];
+
+const List<String> cuffSize = [
+  "Select new size (circumference in mm)",
+  "S",
+  "M",
+  "L",
+];

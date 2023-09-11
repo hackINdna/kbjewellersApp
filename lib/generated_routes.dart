@@ -3,6 +3,13 @@ import 'package:jewel_ar/pages/all_exclusive_pages/all_exclusive_page.dart';
 import 'package:jewel_ar/pages/customer_message_pages/customer_message_page.dart';
 import 'package:jewel_ar/pages/home_pages/listing_pages/filter_page.dart';
 import 'package:jewel_ar/pages/home_pages/listing_pages/item_details_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_address_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_jewellery_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_measurements_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_orders_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/my_wishlist_page.dart';
+import 'package:jewel_ar/pages/profile_pages/profile_my_pages/personal_information_page.dart';
+import 'package:jewel_ar/pages/search_pages/search_page.dart';
 import 'pages/bottom_navigator/custom_bottom_navigation.dart';
 import 'pages/cart_pages/cart_page.dart';
 import 'pages/category_pages/category_page.dart';
@@ -90,6 +97,62 @@ Route<dynamic> generatedRoutesMain(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const CustomerMessagePage(),
+      );
+
+    // Search Page
+    case SearchPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const SearchPage(),
+      );
+
+    // My Orders Page
+    case MyOrdersPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MyOrdersPage(),
+      );
+
+    // My Orders Page
+    case MyWishlistPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MyWishlistPage(),
+      );
+
+    // My Measurements Page
+    case MyMeasurementsPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MyMeasurementsPage(),
+      );
+
+    // Personal Information Page
+    case PersonalInformationPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const PersonalInformationPage(),
+      );
+
+    // My Address Page
+    case MyAddressPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MyAddressPage(),
+      );
+
+    // My Jewellery Page
+    case MyJewelleryPage.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MyJewelleryPage(),
+      );
+
+    // Cart Page
+    case CartPage.routeName:
+      return PageRouteBuilder(
+        settings: routeSettings,
+        pageBuilder: (_, __, ___) => const CartPage(),
       );
 
     default:

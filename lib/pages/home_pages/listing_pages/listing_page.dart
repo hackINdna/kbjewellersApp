@@ -2,12 +2,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:jewel_ar/data/constData.dart';
 import 'package:jewel_ar/data/static_data.dart';
+import 'package:jewel_ar/pages/cart_pages/cart_page.dart';
 import 'package:jewel_ar/pages/home_pages/listing_pages/item_details_page.dart';
 
 import '../../../custom_widgets/bottom_filter_area.dart';
+import '../../../custom_widgets/contact_us_bottom_sheet.dart';
 import '../../../custom_widgets/custom_checkbox_with_text.dart';
 import '../../../custom_widgets/custom_filter_container_button.dart';
 import '../../../custom_widgets/custom_radio_with_text.dart';
+import '../../profile_pages/profile_my_pages/my_wishlist_page.dart';
+import '../../search_pages/search_page.dart';
 import '../home_widget/list_item.dart';
 import 'filter_page.dart';
 
@@ -99,7 +103,9 @@ class _ListingPageState extends State<ListingPage> {
           child: Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await showContactUs(context, width, height);
+                },
                 child: const Icon(
                   Icons.headset_mic_outlined,
                   size: 22,
@@ -108,7 +114,10 @@ class _ListingPageState extends State<ListingPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(SearchPage.routeName);
+                },
                 child: const Icon(
                   Icons.search,
                   size: 22,
@@ -117,7 +126,10 @@ class _ListingPageState extends State<ListingPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(MyWishlistPage.routeName);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),
@@ -134,7 +146,10 @@ class _ListingPageState extends State<ListingPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(CartPage.routeName, arguments: true);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),

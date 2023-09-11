@@ -1,7 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_widgets/contact_us_bottom_sheet.dart';
 import '../../data/constData.dart';
+import '../../data/static_data.dart';
+import '../cart_pages/cart_page.dart';
+import '../profile_pages/profile_my_pages/my_wishlist_page.dart';
+import '../search_pages/search_page.dart';
 
 class GiftGuidePage extends StatelessWidget {
   static const String routeName = '/gift-guide-page';
@@ -25,7 +30,9 @@ class GiftGuidePage extends StatelessWidget {
           child: Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await showContactUs(context, width, height);
+                },
                 child: const Icon(
                   Icons.headset_mic_outlined,
                   size: 22,
@@ -34,7 +41,10 @@ class GiftGuidePage extends StatelessWidget {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(SearchPage.routeName);
+                },
                 child: const Icon(
                   Icons.search,
                   size: 22,
@@ -43,7 +53,10 @@ class GiftGuidePage extends StatelessWidget {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(MyWishlistPage.routeName);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),
@@ -60,7 +73,10 @@ class GiftGuidePage extends StatelessWidget {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(CartPage.routeName, arguments: true);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),

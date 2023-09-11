@@ -1,8 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
+import '../../../custom_widgets/contact_us_bottom_sheet.dart';
 import '../../../data/constData.dart';
 import '../../../data/static_data.dart';
+import '../../cart_pages/cart_page.dart';
+import '../../profile_pages/profile_my_pages/my_wishlist_page.dart';
+import '../../search_pages/search_page.dart';
 import '../home_widget/list_item.dart';
 
 class ItemDetailsPage extends StatefulWidget {
@@ -85,7 +89,9 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
           child: Row(
             children: [
               InkWell(
-                onTap: () {},
+                onTap: () async {
+                  await showContactUs(context, width, height);
+                },
                 child: const Icon(
                   Icons.headset_mic_outlined,
                   size: 22,
@@ -94,7 +100,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(SearchPage.routeName);
+                },
                 child: const Icon(
                   Icons.search,
                   size: 22,
@@ -103,7 +112,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(MyWishlistPage.routeName);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),
@@ -120,7 +132,10 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
               ),
               SizedBox(width: width * 0.04),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  appLevelNavigatorKey.currentState!
+                      .pushNamed(CartPage.routeName, arguments: true);
+                },
                 child: Badge(
                   backgroundColor: amberWithOpacity,
                   label: const Text("0"),
@@ -1216,7 +1231,7 @@ class _ItemDetailsPageState extends State<ItemDetailsPage> {
                         ),
                       ),
                       SizedBox(height: height * 0.04),
-                      Container(
+                      SizedBox(
                         width: width,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
